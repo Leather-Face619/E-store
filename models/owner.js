@@ -4,19 +4,15 @@ const schema = mongoose.Schema({
     fullName: String,
     email: String,
     password: String,
-    cart: {
+   
+    products: {
         type: Array,
         default: []
     },
-    isAdmin: Boolean,
-    orders: {
-        type: Array,
-        default: []
-    },
-    contact: Number,
+    gst: String,
     pictures:String
 })
 
-const User = mongoose.model('User', schema)
+const Owner = mongoose.model('Owner', schema)
 
-module.exports = User
+module.exports = Owner
