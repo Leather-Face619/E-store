@@ -3,7 +3,7 @@ const app = express.Router()
 const ownerModel = require('../models/owner')
 
 app.get('/admin', (req, res) => {
-let success = 0
+let success = req.flash("success")
     res.render("createproducts",{success})
 })
 app.post('/create', async (req, res) => {
