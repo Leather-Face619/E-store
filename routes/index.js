@@ -16,7 +16,8 @@ router.get('/cart',isLoggedIn,async (req,res)=>{
     let user = await userModel
     .findOne({ email: req.user.email })
     .populate('cart');
-    res.render('cart',{user})
+    let bill = Number(user.cart[0].price)+ 200 - Number(user.cart[0].discount)
+    res.render('cart',{user,bill})
 })
 router.get('/addtocart/:productId', isLoggedIn, async function(req, res) {
    // console.log("User from req:", req.user); // Check if req.user is populated correctly
